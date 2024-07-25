@@ -1,0 +1,29 @@
+PREFIX : <http://askomics.org/data/>
+PREFIX askomics: <http://askomics.org/internal/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX faldo: <http://biohackathon.org/resource/faldo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?gene1_Label ?gene1_start ?gene1_end ?gene1_reference ?Atf1_Transcription_Factor1_Label ?Atf1_Transcription_Factor167_Offset
+WHERE {
+    ?Atf1_Transcription_Factor167_uri <http://askomics.org/data/linked_to> ?gene1_uri .
+    ?gene1_uri rdf:type <http://askomics.org/data/gene> .
+    ?gene1_uri rdfs:label ?gene1_Label .
+    ?gene1_uri faldo:location/faldo:begin/faldo:position ?gene1_start .
+    ?gene1_uri faldo:location/faldo:end/faldo:position ?gene1_end .
+    ?gene1_uri faldo:location/faldo:begin/faldo:reference ?gene1_referenceCategory .
+    ?gene1_referenceCategory rdfs:label ?gene1_reference .
+    ?Atf1_Transcription_Factor167_uri rdf:type <http://askomics.org/data/Atf1%20Transcription%20Factor> .
+    ?Atf1_Transcription_Factor167_uri rdfs:label ?Atf1_Transcription_Factor1_Label .
+    ?Atf1_Transcription_Factor167_uri <http://askomics.org/data/Offset> ?Atf1_Transcription_Factor167_Offset .
+
+
+
+}
+
