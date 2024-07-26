@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Opening and reading result files #################################
-xls1 = pd.ExcelFile("/home/ytirlet/Documents/honeybee/Table7.xlsx")
+xls1 = pd.ExcelFile(PATH_TO_KEGG_FILE)
 dico_sheet1 = pd.read_excel(xls1,sheet_name=None)
 
 names1 = xls1.sheet_names
@@ -37,5 +37,5 @@ df = pd.DataFrame(lines_to_add, columns =['KEGG_ID','Description','pvalue','padj
 df.insert(0,'KEGG_enrichment',['KEGG_enr_' + str(i) for i in range(len(df))])
 
 # Export ############################################################
-df.to_csv("/home/ytirlet/Documents/honeybee/integr/enrichment.tsv",sep='\t',index=False)
+df.to_csv(NEW_KEGG_FILE,sep='\t',index=False)
 
