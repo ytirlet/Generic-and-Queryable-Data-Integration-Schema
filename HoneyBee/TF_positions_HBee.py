@@ -2,8 +2,8 @@
 import pandas as pd
 
 # Opening and reading result files #################################
-df1 = pd.read_csv("/home/ytirlet/Documents/honeybee/integr/result.tsv",sep="\t")
-df2 = pd.read_csv("/home/ytirlet/Documents/honeybee/integr/Atf1_FT.txt",sep="\t")
+df1 = pd.read_csv(gene_positions.tsv,sep="\t")
+df2 = pd.read_csv(PATH_TO_TF_FILE,sep="\t")
 
 # Creating a dictionnary of gene positions #########################
 dico_posi = {}
@@ -31,6 +31,6 @@ for i in range(len(df2)) :
 df2 = df2.drop(df2.index[list_index])
 
 # Export ###########################################################
-df2.to_csv("/home/ytirlet/Documents/honeybee/integr/ATF1.tsv",sep='\t',index=False)
+df2.to_csv(NEW_TF_FILE,sep='\t',index=False)
 
 
