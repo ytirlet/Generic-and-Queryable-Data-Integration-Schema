@@ -3,7 +3,7 @@ import pandas as pd
 
 # Dictionnary of gene names and IDs ################################
 def get_dict_from_df (key_name, value_name) : 
-    file = "/home/ytirlet/Documents/HCM/Supplemental_tables/integr/dictionnaire.tsv"
+    file = "gene_names_ID.tsv"
     df = pd.read_csv(file, delimiter='\t')
     result_dict = df.set_index(key_name)[value_name].to_dict()
     return result_dict
@@ -11,7 +11,7 @@ def get_dict_from_df (key_name, value_name) :
 dico_genes = get_dict_from_df('gene1_gene_name','gene1_Label')
 
 # Opening and reading result files #################################
-xls3 = pd.ExcelFile("/home/ytirlet/Documents/HCM/Supplemental_tables/Table6.xlsx")
+xls3 = pd.ExcelFile(PATH_TO_TF_FILE)
 dico_sheet3 = pd.read_excel(xls3,sheet_name=None)
 names3 = xls3.sheet_names
 
@@ -52,4 +52,4 @@ for i in range(len(TFs)) :
         TFs.iat[i,0] = dico_genes[name]
 TFs.insert(0,'Enriched Motifs',['TF_' + str(i) for i in range(len(TFs))])
 
-TFs.to_csv("/home/ytirlet/Documents/HCM/Supplemental_tables/integr/TFs.tsv",sep='\t',index=False)
+TFs.to_csv(NEW_TF_FILE,sep='\t',index=False)
