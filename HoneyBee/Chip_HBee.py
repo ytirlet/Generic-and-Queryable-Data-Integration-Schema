@@ -2,9 +2,9 @@
 import pandas as pd
 
 # Opening and reading result files #################################
-xls1 = pd.ExcelFile("/home/ytirlet/Documents/honeybee/Table5.xlsx")
+xls1 = pd.ExcelFile(PATH_TO_CHIP_FILE_2DAYS)
 dico_sheet1 = pd.read_excel(xls1,sheet_name=None)
-xls2 = pd.ExcelFile("/home/ytirlet/Documents/honeybee/Table6.xlsx")
+xls2 = pd.ExcelFile(PATH_TO_CHIP_FILE_4DAYS)
 dico_sheet2 = pd.read_excel(xls2,sheet_name=None)
 
 names1 = xls1.sheet_names
@@ -42,4 +42,4 @@ for i in range(len(Chip)) :
     if "(" in Chip.iat[i,7] :
         Chip.iat[i,7] = Chip.iat[i,7].split(' (')[0]
 
-Chip.to_csv("/home/ytirlet/Documents/honeybee/integr/Chip.tsv",sep='\t',index=False)
+Chip.to_csv(NEW_CHIP_FILE,sep='\t',index=False)
