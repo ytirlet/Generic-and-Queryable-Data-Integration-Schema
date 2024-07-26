@@ -2,9 +2,9 @@
 import pandas as pd
 
 # Opening and reading result files #################################
-xls1 = pd.ExcelFile("/home/ytirlet/Documents/HCM/Supplemental_tables/Table3.xlsx")
+xls1 = pd.ExcelFile(PATH_TO_DEGs_FILE)
 dico_sheet1 = pd.read_excel(xls1,sheet_name=None)
-xls2 = pd.ExcelFile("/home/ytirlet/Documents/HCM/Supplemental_tables/Table5.xlsx")
+xls2 = pd.ExcelFile(PATH_TO_CO_DEGs_FILE)
 dico_sheet2 = pd.read_excel(xls2,sheet_name=None)
 
 names1 = xls1.sheet_names
@@ -68,4 +68,4 @@ for i in range(len(DEGs)) :
 DEGs.insert(0,'Differential Expression',['DEG_' + str(i) for i in range(len(DEGs))])
 DEGs = DEGs.rename(columns={'gene':'concerns@gene'})
 
-DEGs.to_csv("/home/ytirlet/Documents/HCM/Supplemental_tables/integr/DEGs.tsv",sep='\t',index=False)
+DEGs.to_csv(PATH_TO_NEW_DEG_FILE,sep='\t',index=False)
