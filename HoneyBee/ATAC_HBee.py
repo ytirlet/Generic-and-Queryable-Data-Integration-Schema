@@ -2,9 +2,9 @@
 import pandas as pd
 
 # Opening and reading result files #################################
-xls1 = pd.ExcelFile("/home/ytirlet/Documents/honeybee/Table3.xlsx")
+xls1 = pd.ExcelFile(PATH_TO_ATAC_FILE_2DAYS)
 dico_sheet1 = pd.read_excel(xls1,sheet_name=None)
-xls2 = pd.ExcelFile("/home/ytirlet/Documents/honeybee/Table4.xlsx")
+xls2 = pd.ExcelFile(PATH_TO_ATAC_FILE_4DAYS)
 dico_sheet2 = pd.read_excel(xls2,sheet_name=None)
 
 names1 = xls1.sheet_names
@@ -42,4 +42,4 @@ for i in range(len(Atac)) :
     if "(" in Atac.iat[i,7] :
         Atac.iat[i,7] = Atac.iat[i,7].split(' (')[0]
 
-Atac.to_csv("/home/ytirlet/Documents/honeybee/integr/Atac.tsv",sep='\t',index=False)
+Atac.to_csv(NEW_ATAC_FILE,sep='\t',index=False)
